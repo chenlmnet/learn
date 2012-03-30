@@ -1,27 +1,32 @@
+// Array creation methods that can be used without
+// qualifiers, using Java SE5 static imports:
 package com.chenlm.learn.tjava.util;
 
 public class Range {
-	public static int[] range(int i) {
-		int[] ins = new int[i];
-		for (int j = 0; j < ins.length; j++) {
-			ins[j] = j;
-		}
-		return ins;
-	}
-	
-	public static int[] range(int begin, int end) {
-		int[] ins = new int[end - begin];
-		for (int i = 0; i < ins.length; i++) {
-			ins[i] = begin + i;
-		}
-		return ins;
-	}
-	
-	public static int[] range(int begin, int end, int step) {
-		int[] ins = new int[(end - begin)/step];
-		for (int i = 0; i < ins.length; i++) {
-			ins[i] = begin + i * step;
-		}
-		return ins;
-	}
+    // Produce a sequence [0..n)
+    public static int[] range(int n) {
+        int[] result = new int[n];
+        for (int i = 0; i < n; i++) {
+            result[i] = i;
+        }
+        return result;
+    }
+    // Produce a sequence [start..end)
+    public static int[] range(int start, int end) {
+        int sz = end - start;
+        int[] result = new int[sz];
+        for (int i = 0; i < sz; i++) {
+            result[i] = start + i;
+        }
+        return result;
+    }
+    // Produce a sequence [start..end) incrementing by step
+    public static int[] range(int start, int end, int step) {
+        int sz = (end - start)/step;
+        int[] result = new int[sz];
+        for (int i = 0; i < sz; i++) {
+            result[i] = start + (i * step);
+        }
+        return result;
+    }
 }
